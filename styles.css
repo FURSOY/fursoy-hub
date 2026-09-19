@@ -1,0 +1,392 @@
+/* FURSOY — brand hub styles.
+   Follows the canonical FURSOY Web Design Standard:
+   C:/Projeler/fursoy-vault/website/FURSOY_WEB_GUIDELINES.md
+   Light-first surface strategy (guideline §3): paper base, ink-family dark footer.
+   Derived tones stay inside the ink/teal family. */
+
+/* ===== Self-hosted FURSOY typefaces (no external requests) ===== */
+/* Manrope: variable 200–800, latin + latin-ext subsets */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Space Mono: 400 + 700, latin + latin-ext subsets (labels/kickers only) */
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/space-mono-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/space-mono-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/space-mono-bold-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/space-mono-bold-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ===== Tokens — canonical FURSOY values ===== */
+:root {
+  color-scheme: light;
+  --ink: #0b3334;          /* canonical --ink */
+  --ink-hover: #155051;    /* canonical hover ink */
+  --teal: #13abb8;         /* canonical --teal */
+  --bright: #27d2d8;       /* canonical --bright */
+  --paper: #f6f8f5;        /* canonical --paper */
+  --line: #d9e4df;         /* canonical --line */
+  --link-teal: #078f9a;    /* legal/action link teal on light */
+  --kicker-teal: #0794a0;  /* kicker teal on light */
+  --text-muted: #506866;   /* derived muted lead (ink family) */
+  --text-soft: #647876;    /* derived muted support (ink family) */
+  --card-bg: #fcfefd;      /* derived paper-white card surface */
+  --footer-bg: #082526;    /* canonical footer dark */
+  --footer-line: #294647;  /* canonical dark-surface border */
+  --footer-muted: #8fa5a3; /* derived footer text (teal-gray family) */
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--teal);
+  color: var(--paper);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+/* FURSOY alignment: ~1180px container system */
+.site-header,
+.hero,
+.products,
+.footer-inner {
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+/* FURSOY alignment: bordered navbar character (86px scale) */
+.site-header {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(11, 51, 52, 0.1);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand img {
+  border-radius: 9px;
+}
+
+.hero {
+  padding: 120px 0 96px;
+}
+
+/* FURSOY alignment: kicker pattern (mono, uppercase, teal, tracked) */
+.kicker {
+  margin: 0 0 28px;
+  color: var(--kicker-teal);
+  font: 700 11px/1.4 "Space Mono", monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* FURSOY alignment: tight negative tracking, near-solid line-height */
+h1 {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 800;
+  line-height: 0.99;
+  letter-spacing: -0.065em;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: -0.018em;
+}
+
+.products {
+  padding: 40px 0 120px;
+}
+
+/* FURSOY alignment: airy card grid collapsing at breakpoints */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* FURSOY alignment: radius family A surface card, thin border, hover lift */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--card-bg);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
+  box-shadow: 0 24px 80px rgba(8, 47, 49, 0.12);
+}
+
+.card-kicker {
+  color: var(--kicker-teal);
+  font: 700 10px/1.4 "Space Mono", monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.card-link {
+  margin-top: auto;
+  color: var(--link-teal);
+  font: 700 11px/1.4 "Space Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.card:hover .card-link,
+.utility:hover .card-link {
+  color: var(--teal);
+}
+
+/* Smaller utilitarian row for the portfolio product (different role than the
+   product cards: legal/support pages rather than a landing page). */
+.utility {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 26px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.utility:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
+}
+
+.utility-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.utility-copy {
+  color: var(--text-soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+/* FURSOY alignment: dark ink-family footer with mono column headers */
+.site-footer {
+  background: var(--footer-bg);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px 0;
+}
+
+.footer-brand {
+  color: #f4f6f8;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.footer-inner nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.footer-inner a {
+  color: var(--footer-muted);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-inner a:hover {
+  color: #6bdcd7;
+}
+
+/* FURSOY alignment: bottom bar separated by 1px dark border, smallest text */
+.footer-bottom {
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+  padding: 18px 0 26px;
+  border-top: 1px solid var(--footer-line);
+  color: #5f7775;
+  font: 700 8.5px/1.4 "Space Mono", monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.site-footer a:focus-visible,
+.brand:focus-visible,
+.card:focus-visible,
+.utility:focus-visible {
+  outline: 3px solid rgba(19, 171, 184, 0.55);
+  outline-offset: 4px;
+}
+
+/* FURSOY alignment: two practical breakpoints, grids collapse to stacks */
+@media (max-width: 900px) {
+  .hero {
+    padding: 88px 0 72px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header,
+  .hero,
+  .products,
+  .footer-inner,
+  .footer-bottom {
+    width: min(100% - 26px, 1180px); /* FURSOY alignment: mobile gutter */
+  }
+
+  .site-header {
+    min-height: 72px;
+  }
+
+  .hero {
+    padding: 72px 0 56px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 11vw, 55px);
+  }
+
+  .products {
+    padding-bottom: 80px;
+  }
+
+  .utility {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .utility,
+  .footer-inner a {
+    transition: none;
+  }
+
+  .card:hover,
+  .utility:hover {
+    transform: none;
+  }
+}
