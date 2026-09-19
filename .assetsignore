@@ -4,5 +4,6 @@
 .wrangler
 README.md
 wrangler.jsonc
+worker.js
 _headers
 .assetsignore
