@@ -231,41 +231,8 @@ h1 {
   text-transform: uppercase;
 }
 
-.card:hover .card-link,
-.utility:hover .card-link {
+.card:hover .card-link {
   color: var(--teal);
-}
-
-/* Smaller utilitarian row for the portfolio product (different role than the
-   product cards: legal/support pages rather than a landing page). */
-.utility {
-  margin-top: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 26px;
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.utility:hover {
-  transform: translateY(-2px);
-  border-color: var(--teal);
-}
-
-.utility-text {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.utility-copy {
-  color: var(--text-soft);
-  font-size: 12.5px;
-  line-height: 1.6;
 }
 
 /* FURSOY alignment: dark ink-family footer with mono column headers */
@@ -319,8 +286,7 @@ h1 {
 
 .site-footer a:focus-visible,
 .brand:focus-visible,
-.card:focus-visible,
-.utility:focus-visible {
+.card:focus-visible {
   outline: 3px solid rgba(19, 171, 184, 0.55);
   outline-offset: 4px;
 }
@@ -361,12 +327,6 @@ h1 {
     padding-bottom: 80px;
   }
 
-  .utility {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -380,13 +340,11 @@ h1 {
   }
 
   .card,
-  .utility,
   .footer-inner a {
     transition: none;
   }
 
-  .card:hover,
-  .utility:hover {
+  .card:hover {
     transform: none;
   }
 }
